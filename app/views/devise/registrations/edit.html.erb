@@ -1,0 +1,49 @@
+<div class="container my-5">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { confirm: "You sure?" }) do |f| %>
+    <div class="row justify-content-center">
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="col-md-8 text-md-center">
+        <h1 class="font-italic mb-5">Settings</h1>
+        <div class="field row justify-content-center">
+          <%= f.label :name, class: "col-sm-2 font-italic" %>/
+          <div class="col-sm-6">
+            <nobr>
+            <%= f.text_field :name, class: "mb-2", autofocus: true, autocomplete: "name" %>
+            </nobr>
+          </div>
+        </div>
+
+        <div class="field row justify-content-center">
+          <%= f.label :number, class: "col-sm-2 font-italic" %>/
+          <div class="col-sm-6">
+            <nobr>
+            <%= f.text_field :number, class: "mb-2", autofocus: true, autocomplete: "number" %>
+            </nobr>
+          </div>
+        </div>
+
+        <div class="field row justify-content-center">
+          <%= f.label :email, class: "col-sm-2 font-italic" %>/
+          <div class="col-sm-6">
+            <nobr>
+            <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
+            </nobr>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="actions">
+          <div class="row">
+            <div class="col-lg-12">
+              <%= f.submit "edit", class: "btn btn-sm btn-primary rounded-pill text-center w-50 mt-5" %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <% end %>
+  </div>
